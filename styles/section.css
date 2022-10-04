@@ -1,0 +1,21 @@
+.section p  
+{
+    font-size: 25px;
+}
+h1
+{
+    text-align: center;
+}
+
+img
+{
+    max-width: 100%;
+}
+#binhluan input
+{
+    width: 30%; 
+    height: 50px; 
+    border-radius: 20px; 
+    font-size: 20px; 
+    display: inline-block
+}

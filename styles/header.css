@@ -1,0 +1,172 @@
+/* mobile */
+    #container
+    {
+        margin: 0px auto;
+        width: 100%;
+    }
+    #header
+    {
+        position: fixed;
+        z-index: 8;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .header-top-wrap
+    {
+        background-color: black;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 100%;
+        text-align: center;
+        
+    }
+    .header-top-left
+    {
+        font-size: 10px;
+        margin: 5px;
+        color: white;
+        display:  none;
+        margin-left: 20px;
+    }
+    .header-top-left i
+    {
+        color: darkorange !important;
+        font-size: 15px;
+        vertical-align: middle;
+        padding: 5px;
+    }
+    .media-header{color: white !important}
+    .header-top-right
+    {
+        font-size: 10px;
+        margin: 5px;
+        color: white;
+        margin-right: 20px;
+    }
+    .header-top-right a
+    {
+        color: white;
+    }
+    .header-top-right i
+    {
+        color: darkorange ;
+        font-size: 15px;
+        vertical-align: middle;
+        padding: 5px;
+    }
+    .header-main-wrap
+    {
+        width: 100%;
+        z-index: 12;
+        background: rgba(19, 15, 15, 0.6)
+    }
+    
+    .searchBar
+    {
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        font-size: 10px;
+    }
+    #searchBox
+    {
+        width: 100%;
+    }
+    #searchBox #searchText{
+        border-radius: 20px;
+        outline: none;
+        background-color: none;
+        padding:10px 15px    
+        
+    }
+    #searchText{
+        width: 70%;
+    }
+    
+    #searchBox #searchBtn{
+        background-color: orange;
+        cursor: pointer;
+        border: none;
+        padding: 10px 10px;
+        border-radius: 50%;
+    
+    }
+    .cart{
+        font-size: 30px;
+        float: right;
+        color: white;
+        margin-top: 5px;
+        margin-right: 15px;
+    }
+    .cart:hover
+    {
+        color: orange
+    }
+    #tk
+    {
+        display: none;
+        position: absolute;
+        z-index: 10;
+        background-color: #030100;    
+    }
+    #tk a
+    {
+        color: #FF6203 !important;     
+    }   
+    #ckb_tk{display: none}
+    #ckb_tk:checked + #tk
+    {
+        display: inline-block ;
+    }
+/* pc */
+@media screen and (min-width: 1000px) {
+    
+    #container
+    {
+        margin: 0px auto;
+        width: 80%;
+    }
+    #header
+    {
+        width: 80%;
+    }
+    
+    .header-top-wrap
+    {
+        text-align: left;
+    }
+    .header-top-left
+    {
+        font-size: 15px;
+        display:  inline-block;
+    }
+    .header-top-left i
+    {
+        
+        font-size: 20px;
+    }
+    .header-top-right
+    {
+        font-size: 15px;
+        float: right;
+    }
+    .header-top-right i
+    {
+        font-size: 20px;
+    }
+    
+    .searchBar
+    {
+        width: 30%;
+        text-align: center;
+        font-size: 15px;
+    }
+    #searchBox
+    {
+        width: 100%;
+    }
+    .cart{
+        font-size: 40px;
+    }
+}

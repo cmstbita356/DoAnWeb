@@ -1,0 +1,134 @@
+#footer-logoall
+{
+    margin-top: 5px;
+}
+#footer-car-logo
+{
+    background-color: darkorange;
+    text-align: center;
+}
+#footer-otherlogo
+{
+    background-color: lightgrey;
+    text-align: center;
+}
+.footer-logo
+{
+    margin-top: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#footer-icon
+{
+    font-size: 35px;
+    color:white;
+    padding: 10px 12px;
+    background-color: orange;
+}
+#phone-contact
+{
+    margin-top: 60px;
+    margin-left: 40px;
+    font-size: 15px;
+    color: white;
+}
+#email-contact
+{
+    margin-top: 60px;
+    margin-left: 40px;
+    font-size: 15px;
+    color: white;
+}
+#address-contact
+{
+    margin-top: 60px;
+    margin-left: 40px;
+    font-size: 15px;
+    color: white;
+}
+#footer-main2
+{
+    margin-top: 60px;
+    margin-left: 40px;
+    color: black;
+    font-size: 20px;
+    line-height: 35px;
+}
+#footer-main2 a
+{
+    color: white;
+}
+#footer-main3
+{
+    margin-top: 60px;
+    margin-left: 40px;
+    color: black;
+    font-size: 20px;
+    line-height: 35px;
+}
+#footer-main3 a
+{
+    color: white;
+}
+#footer-wrap-1
+{
+    height: 500px
+}
+#footer-wrap-2
+{
+    height: 500px
+}
+#footer-wrap-3
+{
+    height: 500px
+}
+@media screen and (max-width: 750px) {
+    .footer-wrap-3
+    {
+        display: none;
+    }
+    #footer-wrap-2 
+    {
+        height: 300px;
+    }
+    #footer-main2
+    {
+        margin-top: 30px;
+        margin-left: 20px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+    #footer-wrap-1 
+    {
+        height: 300px;
+    }
+    #phone-contact
+    {
+        margin-top: 30px;
+        margin-left: 20px;
+        font-size: 10px;
+        color: white;
+    }
+    #email-contact
+    {
+        margin-top: 30px;
+        margin-left: 20px;
+        font-size: 10px;
+        color: white;
+    }
+    #address-contact
+    {
+        margin-top: 30px;
+        margin-left: 20px;
+        font-size: 10px;
+        color: white;
+    }
+    #footer-icon
+    {
+        font-size: 25px;
+    }
+    #footer-otherlogo
+    {
+        display: none;
+    }
+}

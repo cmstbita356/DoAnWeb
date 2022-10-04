@@ -1,0 +1,159 @@
+*
+{
+    padding: 0;  
+}
+
+#sidebar
+{
+    width: 300px;
+    height: 100%;
+    left: -300px;
+    top: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+    position: fixed;
+    background-color: #042331;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+#sidebar ul a
+{
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    box-sizing: border-box;
+    padding-left: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid black;
+    border-left: 5px solid transparent;
+    transition: .4s;
+}
+#check
+{
+    display: none;
+    position: absolute;
+    top: -20px;
+}
+#sidebar ul a:hover
+{
+    padding-left: 30px;
+    background: black;
+    color: orange; 
+    border-left-color: orange
+}
+
+label #hamburger
+{
+    left: 10px;
+    top: 10px;
+    font-size: 50px;
+    color:white;
+    padding: 6px 12px;
+    transition: .5s ease;
+    z-index: 13;
+    display: inline-block;
+}
+label #cancel
+{
+    display: hidden;
+    font-size: 35px;
+    left: -300px;
+    top: 10px;
+    padding: 1px 10px;
+    color: white;
+    background: darkslategrey;
+    transition: .5s ease;
+    position: fixed;
+    z-index: 11;
+    position: fixed;
+}
+label #cancel:hover
+{
+    color: orange;
+}
+#check:checked ~ #sidebar
+{
+    left: 0px;   
+}
+#check:checked ~ #lb #cancel
+{
+    left: 250px;
+    display: block;
+}
+#check:checked ~ #lb #hamburger
+{
+    left: 150px;
+    opacity: 0;
+    pointer-events: none;
+}
+#lb #hamburger:hover
+{
+    color: darkorange;
+}
+
+/* mobile */
+@media screen and (max-width: 999px) {
+
+    #sidebar
+    {
+        width: 200px;
+        height: 100%;
+        left: -200px;
+        top: 0px;
+        bottom: 0px;
+        overflow-y: scroll;
+        position: fixed;
+        background-color: #042331;
+        transition: all 0.5s ease;
+        z-index: 10;
+    }
+    #sidebar ul a
+    {
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 65px;
+        font-size: 15px;
+        color: white;
+        box-sizing: border-box;
+        padding-left: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid black;
+        border-left: 5px solid transparent;
+        transition: .4s;
+    }
+
+    label #hamburger
+    {
+        left: 10px;
+        top: 10px;
+        font-size: 30px;
+        color:white;
+        padding: 6px 12px;
+        transition: .5s ease;
+        z-index: 13;
+        display: inline-block;
+    }
+    label #cancel
+    {
+        display: hidden;
+        font-size: 20px;
+        left: -200px;
+        top: 10px;
+        padding: 1px 10px;
+        color: white;
+        background: darkslategrey;
+        transition: .5s ease;
+        position: fixed;
+        z-index: 11;
+    }
+
+    #check:checked ~ #lb #cancel
+    {
+        left: 150px;
+        display: block;
+    }
+}
