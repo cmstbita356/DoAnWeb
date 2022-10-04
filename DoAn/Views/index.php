@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/Sidebar.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/banner.css">
@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="../styles/footer.css">
     
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/e50213ec74.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -25,23 +25,31 @@
             <div id="header">
                 <div class="header-top-wrap">
                     <div class="header-top-left">
-                        <p><i class="fa-solid fa-envelope"></i>cmstbita356@gmail.com | <i class="fa-solid fa-clock"></i>7:00AM to 5:00PM</p>
+                        <p>
+                            <i class="fa-solid fa-envelope"></i>cmstbita356@gmail.com | 
+                            <i class="fa-solid fa-clock"></i>7:00AM to 5:00PM</p>
                     </div>
                     <div class="header-top-right">
                         <div>
-                            <a href="https://www.facebook.com/nam.thang.7121" target="_blank"><i class="media-header fa-brands fa-facebook"></i></a>
-                            <a href="https://www.youtube.com/channel/UCPk5dOJ5jQGp70cFfB6hbXQ" target="_blank"><i class="media-header fa-brands fa-youtube"></i></i></a>
-                            <a href="https://discord.gg/AXK2TuV8" target="_blank"><i class="media-header fa-brands fa-discord"></i></i></a>
+                            <a href="https://www.facebook.com/nam.thang.7121" target="_blank">
+                                <i class="media-header fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCPk5dOJ5jQGp70cFfB6hbXQ" target="_blank">
+                                <i class="media-header fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="https://discord.gg/AXK2TuV8" target="_blank">
+                                <i class="media-header fa-brands fa-discord"></i>
+                            </a>
                             <i class="fa-solid fa-user"></i>
                             <?php
-                                if(isset($_SESSION['username']))
-                                { 
+                                if (isset($_SESSION['username']))
+                                {
                                     echo
                                     "
                                         <label for='ckb_tk' id='lb_tk'>".$_SESSION['username']."</label><br>
                                         <input type='checkbox' id='ckb_tk'>
                                         <div id='tk'>
-                                            <a href='#'>Cài đặt tài khoản</a><br>   
+                                            <a href='#'>Cài đặt tài khoản</a><br>
                                             <a href='../controllers/xulydangxuat.php'>Đăng xuất</a>
                                         </div>
                                         
@@ -73,7 +81,9 @@
                             <ul>
                                 <li class="active"><a href="./" >Trang chủ</a></li>
                                 <li>
-                                    <a href="#pagesubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">Trang khác</a>
+                                    <a href="#pagesubmenu" class="dropdown-toggle" data-toggle="collapse" aria-expanded="false">
+                                        Trang khác
+                                    </a>
                                     <ul class="collapse" id="pagesubmenu">
                                         <li class="pl-4"><a href="#">Về chúng tôi</a></li>
                                         <li class="pl-4"><a href="#">Trang đăng nhập</a></li>
@@ -96,8 +106,41 @@
                                 <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
-                        <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          
-                        
+                        <div class="cart-wrap">
+                            <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          
+                            <div class="cart-show">
+                                <?php
+                                    if(isset($_SESSION['giohang']))
+                                    {
+                                        $giohang = $_SESSION["giohang"];
+                                        foreach($giohang as $v)
+                                        {
+                                            echo
+                                            "
+                                                <div style='background-color: #D6D4D3'>
+                                                    <div style='float:left'>
+                                                        <img id='img-cart-bar' src='".$v['img']."'>
+                                                    </div>
+                                                    <div style='float:left'>
+                                                        ".$v['ten']." <br>
+                                                        ".number_format($v['gia'])." VND <br>
+                                                    </div>
+                                                    <br style='clear:both'>
+                                                </div>
+                                            ";
+                                        }
+                                        echo 
+                                        "   
+                                            <a href='giohang.php' style='color: #EE3B0B'>
+                                                <button style='width:100%; background-color: #3D3838'>
+                                                    Xem chi tiết
+                                                </button>
+                                            </a>
+                                        ";
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -291,5 +334,4 @@
             </div>
         </div>
 </body>
-
 </html>

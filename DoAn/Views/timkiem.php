@@ -96,35 +96,55 @@
                                 <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
-                        <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          
+                        <div class="cart-wrap">
+                            <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          
+                            <div class="cart-show">
+                                <?php
+                                    if(isset($_SESSION['giohang']))
+                                    {
+                                        $giohang = $_SESSION["giohang"];
+                                        foreach($giohang as $v)
+                                        {
+                                            echo
+                                            "
+                                                <div style='background-color: #D6D4D3'>
+                                                    <div style='float:left'>
+                                                        <img id='img-cart-bar' src='".$v['img']."'>
+                                                    </div>
+                                                    <div style='float:left'>
+                                                        ".$v['ten']." <br>
+                                                        ".number_format($v['gia'])." VND <br>
+                                                    </div>
+                                                    <br style='clear:both'>
+                                                </div>
+                                            ";
+                                        }
+                                        echo 
+                                        "   
+                                            <a href='giohang.php' style='color: #EE3B0B'>
+                                                <button style='width:100%; background-color: #3D3838'>
+                                                    Xem chi tiết
+                                                </button>
+                                            </a>
+                                        ";
+                                    }
+                                ?>
+                            </div>
+                        </div>          
                         
                     </div>
                 </div>
                 
         </div> 
-        <div id="content_ctsp">
-            
-            <?php include_once "../Controllers/xulychitietsp.php" ?>
-            <p style="font-size: 40px;">Bình luận</p>
-            <div class="border mt-5 mb-5" id="binhluan">
-                    <div class="media">
-                        <img src="../images/media-1.jpg" alt="img" class="p-3 ml-2 rounded-circle" style="width:80px">
-                        <div class="media-body p-3" style="font-size: 20px;">
-                            <h3>Hoài Nam <small> <em>Posted on today</em></small></h3>
-                            <p>Hello</p>
-                            <div class="media mt-3">
-                                <img src="../images/media-1.jpg" alt="asd" class="rounded-circle p-3" style="width:80px">
-                                <div class="media-body p-3">
-                                    <h3>Nam Hoài<small><em> Posted on today</em></small></h3>
-                                    <p>Bạn đẹp trai quá</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <img src="../images/media-1.jpg" alt="img" class="p-3 ml-2 rounded-circle" style="width:80px; display: inline-block">
-                    <input type="text" placeholder="Bình luận">
-                    <button type="button" class="btn btn-success ml-5" style="font-size: 20px; border-radius: 10px;">Đăng</button>
-                </div>
+        <div class="section">
+            <nav aria-label="breadcrumb" style="font-size: 20px; margin-top: 20px">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item "><a href="./" >Trang chủ</a></li> 
+                    <li class="breadcrumb-item ">Sản phẩm</li> 
+                    <li class="breadcrumb-item active">Kết quả tìm kiếm</li> 
+                </ol>
+            </nav>
+            <?php include_once "../Controllers/xulytimkiem.php" ?>
         </div>
         <div class="footer">
                 <div class="row" id="footer-logoall">
@@ -188,42 +208,4 @@
             </div>
     </div>
 </body>
-<style>
-    #content_ctsp
-    {
-        line-height: 60px;
-    }
-    #img_ctsp
-    {
-        height: 500px;
-    }
-    #name_ctsp
-    {
-        font-size: 40px;
-    }
-    #price_ctsp
-    {
-        font-size: 30px;
-        color: red;
-    }
-    #nsx_ctsp
-    {
-        font-size: 25px;
-    }
-    #state_ctsp
-    {
-        font-size: 25px;
-    }
-    #mota_ctsp
-    {
-        font-size: 25px;
-    }
-    #btn_ctsp
-    {
-        background-color: orange;
-        color: white;
-        font-size: 25px;
-        width: 200px;
-    }
-</style>
 </html>

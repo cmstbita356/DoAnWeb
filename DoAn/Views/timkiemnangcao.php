@@ -84,7 +84,41 @@
                                 <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
-                        <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          
+                        <div class="cart-wrap">
+                            <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          
+                            <div class="cart-show">
+                                <?php
+                                    if(isset($_SESSION['giohang']))
+                                    {
+                                        $giohang = $_SESSION["giohang"];
+                                        foreach($giohang as $v)
+                                        {
+                                            echo
+                                            "
+                                                <div style='background-color: #D6D4D3'>
+                                                    <div style='float:left'>
+                                                        <img id='img-cart-bar' src='".$v['img']."'>
+                                                    </div>
+                                                    <div style='float:left'>
+                                                        ".$v['ten']." <br>
+                                                        ".number_format($v['gia'])." VND <br>
+                                                    </div>
+                                                    <br style='clear:both'>
+                                                </div>
+                                            ";
+                                        }
+                                        echo 
+                                        "   
+                                            <a href='giohang.php' style='color: #EE3B0B'>
+                                                <button style='width:100%; background-color: #3D3838'>
+                                                    Xem chi tiết
+                                                </button>
+                                            </a>
+                                        ";
+                                    }
+                                ?>
+                            </div>
+                        </div>   
                         
                     </div>
                 </div>

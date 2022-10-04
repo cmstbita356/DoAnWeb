@@ -26,7 +26,7 @@
                     <p id='price_ctsp'>$price VNĐ</p>
                     <p id='nsx_ctsp'>Nhà sản xuất: $product->brand</p>
                     <p id='state_ctsp'>Trạng thái xe: $product->time</p>
-                    <a href='#'><button id='btn_ctsp'>Vào giỏ hàng</button></a>
+                    <a href='../Controllers/xulygiohang.php?action=them&id=".$product->getId()."&img=$product->img&ten=$product->name&gia=$product->price&sl=1'><button id='btn_ctsp'>Vào giỏ hàng</button></a>
                 </div>
                 <div class='col-md-12 col-12'>
                     <h1><strong>Mô tả sản phẩm</strong></h1>

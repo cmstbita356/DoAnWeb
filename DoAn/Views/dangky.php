@@ -94,9 +94,9 @@
                             </ul>
                         </div>
                         <div class="searchBar">
-                            <form action="" id="searchBox">
-                                <input type="text" id="searchText" placeholder="Nhập từ khoá">
-                                <button id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <form action="timkiem.php" id="searchBox">
+                                <input type="text" id="searchText" placeholder="Nhập từ khoá" name="keyword">
+                                <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
                         <div class="cart"><i class="fa-solid fa-cart-shopping"></i></div>          

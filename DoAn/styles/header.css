@@ -92,6 +92,11 @@
         border-radius: 50%;
     
     }
+    .cart-wrap
+    {
+        float: right;
+        width: 350;
+    }
     .cart{
         font-size: 30px;
         float: right;
@@ -102,6 +107,29 @@
     .cart:hover
     {
         color: orange
+    }
+    .cart:hover ~ .cart-show
+    {
+        display: inline-block;
+    }
+    .cart-show:hover
+    {
+        display: inline-block;
+    }
+    #img-cart-bar
+    {
+        width: 100px;
+    }
+    .cart-show
+    {
+        position: absolute;
+        color: #E96E30;
+        top: 90px;
+        display: none;
+        background-color: white;
+        right: 0px;
+        width: 250px;
+        font-size: 15px;
     }
     #tk
     {
@@ -155,7 +183,16 @@
     {
         font-size: 20px;
     }
-    
+    #img-cart-bar
+    {
+        width: 150px;
+    }
+    .cart-show
+    {
+        width: 350px;
+        font-size: 20px;
+        top: 120px;
+    }
     .searchBar
     {
         width: 30%;
