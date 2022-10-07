@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/e50213ec74.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php session_start(); //xxxcxcxc ?>
+    <?php session_start(); ///test ?>
         <div id="container">
             <div id="header">
                 <div class="header-top-wrap">

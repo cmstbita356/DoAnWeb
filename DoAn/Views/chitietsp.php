@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/e50213ec74.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php session_start(); ?>
+    <?php session_start(); //chitietsptest ?>
     <div id="container">
         <div id="header" style="position: relative !important; width: 100%">
                 <div class="header-top-wrap">
