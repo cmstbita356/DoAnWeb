@@ -23,8 +23,8 @@
         {
             $link = null;
             ConnectDatabase($link);
-            $valuetime = ($time == 0)? "" : $time; 
-            $valuebrand = ($brand == 0)? "" : $brand; 
+            $valuetime = ($time == '0')? "" : $time; 
+            $valuebrand = ($brand == '0')? "" : $brand; 
             $valueprice = ($price == 0)? 10000000000 : $price; 
             $result_count = ExecuteQuery($link, "select count(*) from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice");
             $row = mysqli_fetch_row($result_count);
@@ -77,8 +77,8 @@
             
             $link = null;
             ConnectDatabase($link);
-            $valuetime = ($time == 0)? "" : $time; 
-            $valuebrand = ($brand == 0)? "" : $brand; 
+            $valuetime = ($time == '0')? "" : $time; 
+            $valuebrand = ($brand == '0')? "" : $brand; 
             $valueprice = ($price == 0)? 10000000000 : $price; 
             $result = ExecuteQuery($link, "select * from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice limit $from, $size");
             $data = array();

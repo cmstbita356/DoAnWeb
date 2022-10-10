@@ -19,6 +19,8 @@
     <script src="https://kit.fontawesome.com/e50213ec74.js" crossorigin="anonymous"></script>
 </head>
 <?php
+    session_start();
+    
     if(isset($_GET['msg']))
     {
         $msg = $_GET["msg"];
@@ -32,10 +34,22 @@
         }
         if($msg == "dn_done")
         {
-            header("Location: ../Views/index.php");
+            if (isset($_SESSION['previous'])) 
+            {
+                header("Location: " . $_SESSION['previous']);
+            }
+            else
+            {
+                header("Location: index.php");
+            }
         }
         
     }
+    else
+        {
+            $_SESSION['previous'] = $_SERVER['HTTP_REFERER'];
+            echo  $_SESSION['previous'];
+        }
 ?>
 <body>
     <div id="container">
@@ -50,7 +64,7 @@
                             <a href="https://www.youtube.com/channel/UCPk5dOJ5jQGp70cFfB6hbXQ" target="_blank"><i class="media-header fa-brands fa-youtube"></i></i></a>
                             <a href="https://discord.gg/AXK2TuV8" target="_blank"><i class="media-header fa-brands fa-discord"></i></i></a>
                             <i class="fa-solid fa-user"></i>
-                            <a href="dangnhap.php">Đăng nhập</a> | <a href="dangky.php">Đăng ký</a>
+                            <a>Đăng nhập</a> | <a href="dangky.php">Đăng ký</a>
                         </p>
                     </div>
                 </div> 

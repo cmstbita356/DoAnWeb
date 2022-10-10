@@ -30,6 +30,10 @@
         {
             unset($_SESSION['username']);
             unset($_SESSION['quyen']);
+            if(isset($_SESSION['giohang']))
+            {
+                unset($_SESSION['giohang']);
+            }
             return true;
         }
         else
