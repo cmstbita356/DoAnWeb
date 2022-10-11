@@ -209,23 +209,10 @@
                 ?>
                 <p class="mt-5" style="font-size: 40px"><strong>Hỏi đáp</strong></p>
                 <div class="border mt-5 mb-5" id="binhluan">
-                    <div class="media">
-                        <img src="../images/media-1.jpg" alt="img" class="p-3 ml-2 rounded-circle" style="width:80px">
-                        <div class="media-body p-3" style="font-size: 20px;">
-                            <h3>Hoài Nam <small> <em>Posted on today</em></small></h3>
-                            <p>Hello</p>
-                            <div class="media mt-3">
-                                <img src="../images/media-1.jpg" alt="asd" class="rounded-circle p-3" style="width:80px">
-                                <div class="media-body p-3">
-                                    <h3>Nam Hoài<small><em> Posted on today</em></small></h3>
-                                    <p>Bạn đẹp trai quá</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="noidung_binhluan"></div>
                     <img src="../images/media-1.jpg" alt="img" class="p-3 ml-2 rounded-circle" style="width:80px; display: inline-block">
-                    <input type="text" placeholder="Bình luận">
-                    <button type="button" class="btn btn-success ml-5" style="font-size: 20px; border-radius: 10px;">Đăng</button>
+                    <input id ="msg_binhluan" type="text" placeholder="Bình luận">
+                    <button id="dang_binhluan" type="button" class="btn btn-success ml-5" style="font-size: 20px; border-radius: 10px;">Đăng</button>
                 </div>
             </div>
             
@@ -335,4 +322,17 @@
             </div>
         </div>
 </body>
+<script>
+    <?php 
+        include_once "comment_module.php" ;
+        $cm = new comment_module();
+    ?>
+    document.getElementById("dang_binhluan").onclick = function(){Dang_Binhluan()};
+    function Dang_Binhluan()
+    {
+        <?php  $msg?> = document.getElementById("msg_binhluan").Value;
+        let comment = <?php $cm->CreateComment(new comment($_SESSION['username'], $msg, date("d/m/Y"))) ?>
+        document.getElementById("noidung_binhluan").innerHTML += comment;
+    }
+</script>
 </html>

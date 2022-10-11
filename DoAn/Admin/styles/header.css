@@ -1,0 +1,45 @@
+.container
+{
+    width: 70%;
+    max-width: 100%;
+    padding-bottom: 20px;
+}
+.header
+{
+    background-color: #CFD2CF;
+}
+.header-left
+{
+    font-size: 25px;  
+    display: inline-block;
+}
+.header-left a
+{
+    color: black;
+}
+#lb_tk
+{
+    font-size: 25px;
+    color: black;
+    margin-top: 20px;
+}
+#tk
+{
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background-color: #030100;    
+}
+#tk a
+{
+    color: #FF6203 !important;     
+}   
+#ckb_tk{display: none}
+#ckb_tk:checked + #tk
+{
+    display: inline-block ;
+}
+.header-right
+{
+    float: right;
+}

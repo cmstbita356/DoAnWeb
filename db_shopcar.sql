@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2022 at 03:23 AM
+-- Generation Time: Oct 11, 2022 at 12:20 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -22,6 +22,19 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `db_shopcar` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `db_shopcar`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_comment`
+--
+
+CREATE TABLE `tbl_comment` (
+  `id` int(11) NOT NULL,
+  `username` int(11) NOT NULL,
+  `msg` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -54,7 +67,10 @@ INSERT INTO `tbl_product` (`id`, `name`, `price`, `desc`, `img`, `brand`, `time`
 (7, 'BMW M240', 200000000, 'It is a sporty two-door coupe or convertible with seating for four. Two models are available: the 230i and M240i. The 230i is powered by a 248-horsepower, turbocharged 2.0-liter four-cylinder engine, while the M240i gets a 335-hp, turbocharged 3.0-liter inline-six.', 'https://www.cstatic-images.com/car-pictures/xl/usd00bmc803a021001.png', 'BMW', 'Cũ', b'1'),
 (8, 'Honda Civic Si', 550000000, 'For the Japanese and European markets, the Civic Type R was adopted as the high-performance variant of the Civic, starting with the EK9 hatch for Japan in 1996 and then with the EP3 hatch for Europe in 2001. The 2017 model year marked the first time that the Civic Type R was sold in North America, previous to this the Si trim was the highest in North America (except for Acura vehicles). While the Civic Type R has a more powerful engine, plus it available in a more track-oriented and spartan configuration including less sound deadening and amenities, by contrast the Civic Si has been positioned as more of a full-featured sport trim, featuring luxury options such as a sunroof and a seven-speaker audio system.', 'https://www.cstatic-images.com/car-pictures/xl/usd00hoc182a021001.png', 'Honda', 'Mới', b'1'),
 (9, 'Genesis G80', 800000000, 'With a striking exterior design and a posh cabin, the 2022 G80 legitimizes Genesis as a true luxury brand. It\'s also on our Editors\' Choice list. Two turbocharged engines are offered—a 2.5-liter four-cylinder or a 3.5-liter V-6—and both deliver plentiful power and refinement. While the G80 slots in between the smaller G70 and the larger G90 in the Genesis lineup, its interior design is a cut above both of those sedans and it offers a more modern infotainment package too. The G80\'s fresh take on what makes a premium car premium puts it near the head of a competitive class of luxury sedans which includes established nameplates such as the Audi A6, the BMW 5-series, and the Mercedes-Benz E-class.', 'https://www.cstatic-images.com/car-pictures/xl/usc90gsc011c021001.png', 'Genesis', 'Mới', b'1'),
-(10, '2019 Buick Envision Essence', 600000000, 'The Essence trim adds three-zone automatic climate control, leather upholstery, a heated steering wheel, driver-seat memory settings, heated outboard rear seats, and blind-spot monitoring with rear cross-traffic alert.', 'https://www.cstatic-images.com/car-pictures/xl/usc90hoc174a021001.png', 'Buick', 'Mới', b'1');
+(10, '2019 Buick Envision Essence', 600000000, 'The Essence trim adds three-zone automatic climate control, leather upholstery, a heated steering wheel, driver-seat memory settings, heated outboard rear seats, and blind-spot monitoring with rear cross-traffic alert.', 'https://www.cstatic-images.com/car-pictures/xl/usc90hoc174a021001.png', 'Buick', 'Mới', b'1'),
+(11, 'a', 1, 'a', 'a', 'a', 'Cũ', b'0'),
+(12, 'Honda Civic Type R', 69900000, 'Successful on the track and revered by driving enthusiasts around the world, the all-new 2023 Civic Type R is more powerful than ever, featuring a turbocharged 2.0-liter, 315-horsepower* engine mated to a precise six-speed manual transmission.', 'https://www.cstatic-images.com/car-pictures/xl/usc90hoc174a021001.png', 'Honda', 'Mới', b'0'),
+(13, 'Honda Civic Type R', 699000001, 'Successful on the track and revered by driving enthusiasts around the world, the all-new 2023 Civic Type R is more powerful than ever, featuring a turbocharged 2.0-liter, 315-horsepower* engine mated to a precise six-speed manual transmission.', 'https://www.cstatic-images.com/car-pictures/xl/usc90hoc174a021001.png', 'Honda', 'Mới', b'0');
 
 -- --------------------------------------------------------
 
@@ -101,6 +117,12 @@ INSERT INTO `tbl_user` (`id`, `username`, `password`, `email`, `id_quyen`) VALUE
 --
 
 --
+-- Indexes for table `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
@@ -124,10 +146,16 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_comment`
+--
+ALTER TABLE `tbl_comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_quyen`
