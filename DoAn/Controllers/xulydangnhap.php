@@ -12,7 +12,7 @@
         $password = $_POST["password"];
         if(dangnhap($link, $username, $password))
         {
-            if($_SESSION['quyen'] = "user")
+            if($_SESSION['quyen'] == "user")
             {
                 header("Location: ../Views/dangnhap.php?msg=dn_done");
             }

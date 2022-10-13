@@ -36,23 +36,47 @@
             </div>
         </div>
         <div class='content'>
-            <div style='text-align: center'>
-                <div class="searchBar">
-                    <form action="timkiem.php" id="searchBox">
-                        <input type="text" id="searchText" placeholder="Nhập từ khoá" name="keyword">
-                        <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
-            </div>
-            <a href="themsanpham.php">
-                <button class="btn btn-primary mt-5" style="font-size: 20px;">Thêm sản phẩm</button>
-            </a>
-            <a href="khoiphuc.php">
-                <button class="btn btn-primary mt-5" style="font-size: 20px;">Khôi phục</button>
-            </a>
-            <?php include_once "../Controllers/xemsanpham.php"; ?>
+            <?php include '../Controllers/xulychitietsp.php'?>
         </div>
     </div>
 </body>
-
+<style>
+    #content_ctsp
+    {
+        line-height: 60px;
+    }
+    #img_ctsp
+    {
+        height: 400px;
+        width: 600px;
+    }
+    #name_ctsp
+    {
+        font-size: 40px;
+    }
+    #price_ctsp
+    {
+        font-size: 30px;
+        color: red;
+    }
+    #nsx_ctsp
+    {
+        font-size: 25px;
+    }
+    #state_ctsp
+    {
+        font-size: 25px;
+    }
+    #mota_ctsp
+    {
+        font-size: 25px;
+    }
+    #btn_ctsp
+    {
+        background-color: orange;
+        color: white;
+        font-size: 25px;
+        width: 200px;
+    }
+</style>
 </html>

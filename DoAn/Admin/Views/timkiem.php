@@ -21,8 +21,8 @@
             <div class='header-wrap'>
                 <div class='header-left'>
                     <img class = 'logo-header' src="../../images/car-logo.png" alt="logo" style="width: 100px">
-                    <a class="ml-4" href="">Sản phẩm</a>
-                    <a class="ml-4" href="">Cấp quyền</a>
+                    <a class="ml-4" href="./">Sản phẩm</a>
+                    <a class="ml-4" href="phanquyen.php">Phân quyền</a>
                 </div>
                 <div class="header-right">
                     <img class="rounded-circle" style='width:80px' src="../imgs/image-account.jpg" alt="">

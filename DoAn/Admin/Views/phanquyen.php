@@ -14,7 +14,16 @@
     <link rel="stylesheet" href="../styles/header.css">
 </head>
 <body>
-    <?php session_start(); ?>
+    <?php 
+        session_start(); 
+        if(isset($_GET['msg']))
+        {
+            if($_GET['msg'] == 'done')
+            {
+                $msg = "Phân quyền thành công";
+            }
+        }
+    ?>
     <div class='container'>
         <div class='header'>
             <div class='header-wrap'>
@@ -35,18 +44,45 @@
             </div>
         </div>
         <div class='content'>
-            <nav aria-label="breadcrumb" style="font-size: 20px; margin-top: 20px">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item "><a href="./" >Sản phẩm</a></li> 
-                    <li class="breadcrumb-item active">Thêm sản phẩm</li> 
-                </ol>
-            </nav>
-            <?php include_once "../Controllers/hienthisuasp.php" ?>
+            <form id="phanquyen" action="../Controllers/xulyphanquyen.php" method="get">
+                <h1 style='text-align: center'>Cấp quyền</h1>
+                <div class='msg-phanquyen'>
+                    <?php 
+                        if(isset($msg))
+                        {
+                            echo $msg;
+                        }
+                    ?>
+                </div>
+                <div class="form-group">
+                    <label for="nguoicap">Người cấp:</label>
+                    <input type="text" id="nguoicap" name="nguoicap" value='<?php echo $_SESSION['username'] ?>' disabled>
+                </div>
+                <div class="form-group">
+                    <label for="id">Id người muốn cấp:</label>
+                    <input type="text" id="id" name="id">
+                </div>
+                <div class="form-group">
+                    <label for="id_quyen">Quyền muốn cấp: </label>
+                    <select id='id_quyen' name="id_quyen" class="form-control form-control-lg select" style="height: 50px; width: 90%; font-size: 20px;">
+                        <option value='1'>Admin</option>
+                        <option value="2">User</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input id="submit-phanquyen" type="submit" Value="Hoàn thành" name="action">
+                </div>
+            </form>
         </div>
     </div>
 </body>
 <style>
-    #suasp
+    .msg-phanquyen
+    {
+        color: #367E18;
+        background-color: #D8D9CF;
+    }
+    #phanquyen
     {
         margin: 50px auto;
         margin-left: 20%;
@@ -70,7 +106,7 @@
     {
         background-color: #E8B972;
     }
-    #submit-sua
+    #submit-phanquyen
     {
         background-color: #D5A01C ;
         width: 50% ;

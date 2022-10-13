@@ -7,7 +7,7 @@
         {
             $link = null;
             ConnectDatabase($link);
-            $result_count = ExecuteQuery($link, "select count(*) from tbl_product");
+            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where state = 1 ");
             $row = mysqli_fetch_row($result_count);
             return $row[0];
         }
@@ -15,7 +15,7 @@
         {
             $link = null;
             ConnectDatabase($link);
-            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where name like '%$key%' ");
+            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where name like '%$key%' and state = 1 ");
             $row = mysqli_fetch_row($result_count);
             return $row[0];
         }
@@ -26,7 +26,7 @@
             $valuetime = ($time == '0')? "" : $time; 
             $valuebrand = ($brand == '0')? "" : $brand; 
             $valueprice = ($price == 0)? 10000000000 : $price; 
-            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice");
+            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice and state = 1 ");
             $row = mysqli_fetch_row($result_count);
             return $row[0];
         }
@@ -34,7 +34,7 @@
         {
             $link = null;
             ConnectDatabase($link);
-            $result = ExecuteQuery($link, "select * from tbl_product");
+            $result = ExecuteQuery($link, "select * from tbl_product where state = 1");
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
@@ -48,7 +48,7 @@
         {
             $link = null;
             ConnectDatabase($link);
-            $result = ExecuteQuery($link, "select * from tbl_product limit $from, $size");
+            $result = ExecuteQuery($link, "select * from tbl_product where state = 1 limit $from, $size ");
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
@@ -62,7 +62,7 @@
         {
             $link = null;
             ConnectDatabase($link);
-            $result = ExecuteQuery($link, "select * from tbl_product where name like '%$key%' limit $from, $size");
+            $result = ExecuteQuery($link, "select * from tbl_product where name like '%$key%' and state = 1 limit $from, $size");
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
@@ -80,7 +80,7 @@
             $valuetime = ($time == '0')? "" : $time; 
             $valuebrand = ($brand == '0')? "" : $brand; 
             $valueprice = ($price == 0)? 10000000000 : $price; 
-            $result = ExecuteQuery($link, "select * from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice limit $from, $size");
+            $result = ExecuteQuery($link, "select * from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice and state = 1 limit $from, $size");
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {

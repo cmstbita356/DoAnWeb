@@ -1,18 +1,18 @@
 <?php
     include_once "../Models/db_module.php";
 
-    if(isset($_GET['action']))
+    if(isset($_POST['action']))
     {
-        $id = $_GET['id'];
-        $name = $_GET['name'];
-        $price = $_GET['price'];
-        $desc = $_GET['desc'];
-        $img = $_GET['img'];
-        $brand = $_GET['brand'];
-        $time = $_GET['time'];
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $desc = $_POST['desc'];
+        $img = $_POST['img'];
+        $brand = $_POST['brand'];
+        $time = $_POST['time'];
         $link = null;
         ConnectDatabase($link);
-        ExecuteNonQuery($link, " UPDATE `tbl_product` SET,`name`='$name',`price`=$price,`desc`='$desc',`img`='$img',`brand`='$brand',`time`='$time' WHERE id = $id");
+        ExecuteNonQuery($link, "update `tbl_product` set `name`='".$name."',`price`=$price,`desc`='".$desc."',`img`='".$img."',`brand`='".$brand."',`time`='".$time."' WHERE id = $id");
         header("Location: ../Views/");
     }
 ?>

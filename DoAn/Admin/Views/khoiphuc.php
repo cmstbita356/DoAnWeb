@@ -35,22 +35,14 @@
                 </div>
             </div>
         </div>
-        <div class='content'>
-            <div style='text-align: center'>
-                <div class="searchBar">
-                    <form action="timkiem.php" id="searchBox">
-                        <input type="text" id="searchText" placeholder="Nhập từ khoá" name="keyword">
-                        <button type="submit" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
-                </div>
-            </div>
-            <a href="themsanpham.php">
-                <button class="btn btn-primary mt-5" style="font-size: 20px;">Thêm sản phẩm</button>
-            </a>
-            <a href="khoiphuc.php">
-                <button class="btn btn-primary mt-5" style="font-size: 20px;">Khôi phục</button>
-            </a>
-            <?php include_once "../Controllers/xemsanpham.php"; ?>
+        <div class='content'>    
+            <nav aria-label="breadcrumb" style="font-size: 20px; margin-top: 20px">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item "><a href="./" >Sản phẩm</a></li> 
+                    <li class="breadcrumb-item active">Khôi phục sản phẩm</li> 
+                </ol>
+            </nav>        
+            <?php include_once "../Controllers/xemkhoiphuc.php"; ?>
         </div>
     </div>
 </body>
