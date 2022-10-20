@@ -48,7 +48,6 @@
     else
         {
             $_SESSION['previous'] = $_SERVER['HTTP_REFERER'];
-            echo  $_SESSION['previous'];
         }
 ?>
 <body>

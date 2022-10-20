@@ -4,22 +4,25 @@
 
     class comment_module
     {
-        public function CreateComment($comment)
+        public function CreateComment($comment, $id)
         {
             $link = null;
             ConnectDatabase($link);
-            ExecuteNonQuery($link, "insert into tbl_comment (user_id, msg, date) values ($comment->username, $comment->msg, $comment->date)");
-            $string = 
-            "
-            <div class='media'>
-                <img src='../images/user.png' alt='img' class='p-3 ml-2 rounded-circle' style='width:80px'>
-                <div class='media-body p-3' style='font-size: 20px;'>
-                    <h3> $comment->username <small> <em>$comment->date</em></small></h3>
-                    <p>$comment->msg</p>
-                </div>
-            </div>
-            ";
-            return $string;
+            ExecuteNonQuery($link, "insert into tbl_comment (username, msg, date, id_product) values ('$comment->username', '$comment->msg', '".$comment->date."', $id)");
+        }
+        public function GetListComments($id)
+        {
+            $link = null;
+            ConnectDatabase($link);
+            $result = ExecuteQuery($link, "select * from tbl_comment where id_product = $id");
+            $data = array();
+            while($rows = mysqli_fetch_assoc($result))
+            {
+                $comment = new Comment($rows["username"], $rows["msg"], $rows["date"]);
+                array_push($data, $comment);
+            }
+            ClearMemory($link, $result);
+            return $data;
         }
     }
 ?>
