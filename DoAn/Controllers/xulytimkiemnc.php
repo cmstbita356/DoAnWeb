@@ -5,7 +5,7 @@
     $pagesize = 6;
     $from = ($page-1)*$pagesize;
     $pm = new product_module();
-    $ListProduct = $pm->getProductListLimited_TKNC($_GET['time'], $_GET['brand'], $_GET['price'], $from, $pagesize); 
+    $ListProduct = $pm->getProductListLimited_TKNC($_GET['time'], $_GET['maker'], $_GET['price'], $from, $pagesize); 
     echo "<div class='row mt-5'>";
     foreach($ListProduct as $Product)
     {
@@ -27,7 +27,7 @@
     }
     echo "</div>";
     
-    $total = ceil($pm->Count_TKNC($_GET['time'], $_GET['brand'], $_GET['price'])/$pagesize);
+    $total = ceil($pm->Count_TKNC($_GET['time'], $_GET['maker'], $_GET['price'])/$pagesize);
     
     echo "
     <div style='display: inline-flex; background-color: #A3A2A0; font-size: 20px; margin-left: 45%; margin-top: 10px;'>
@@ -36,7 +36,7 @@
     {
         echo
         "
-            <a style='color: black; margin-left: 5px;' href='./?page=".$i."&time=".$_GET['time']."&brand=".$_GET['brand']."&price=".$_GET['price']."&action=Tìm+kiếm+nâng+cao'>$i</a>|
+            <a type='button' style='color: black; margin-left: 5px;' onclick='TKNC($i)'>$i</a>|
         ";
     }
     echo "</div>"

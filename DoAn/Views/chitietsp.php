@@ -201,8 +201,51 @@
                 </div>
             </div>
     </div>
+
 </body>
+<script>
+        window.addEventListener('keydown',function(e){
+            if(e.keyIdentifier=='U+000A'||e.keyIdentifier=='Enter'||e.keyCode==13)
+            {
+                if(e.target.nodeName=='INPUT'&&e.target.type=='text')
+                {
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        },true);
+        function Comment() 
+        {
+            var msg = document.getElementById("msg_binhluan").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {   
+                // Typical action to be performed when the document is ready:
+                document.getElementById("binhluan").innerHTML = xhttp.responseText;
+                }
+            };
+            xhttp.open("GET", "../Controllers/xembinhluan.php?id="+<?php echo $_GET['id'] ?>+"&comment="+msg, true);
+            xhttp.send();
+        }
+    </script>
 <style>
+.btn-binhluan .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.btn-binhluan:hover .tooltiptext {
+  visibility: visible;
+}
     #content_ctsp
     {
         line-height: 60px;

@@ -14,7 +14,16 @@
     <link rel="stylesheet" href="../styles/header.css">
 </head>
 <body>
-    <?php session_start(); ?>
+    <?php 
+        session_start(); 
+        if(isset($_GET['error']))
+        {
+            if($_GET['error']=='them')
+            {
+                $error = "Id nhẫn hiệu sai";
+            }
+        }
+    ?>
     <div class='container'>
         <div class='header'>
             <div class='header-wrap'>
@@ -43,6 +52,14 @@
             </nav>
             <form id="themsp" action="../Controllers/xulythemsp.php" method="get">
                 <h1 style='text-align: center'>Thêm sản phẩm</h1>
+                <div id='error_them'>
+                <?php 
+                    if(isset($error))
+                    {
+                        echo $error;
+                    }
+                ?>
+                </div>
                 <div class="form-group">
                     <label for="name">Tên sản phẩm:</label>
                     <input type="text" id="name" name="name">
@@ -60,8 +77,8 @@
                     <input type="text" id="img" name="img">
                 </div>
                 <div class="form-group">
-                    <label for="brand">Nhãn hiệu: </label>
-                    <input type="text" id="brand" name="brand">
+                    <label for="id_maker">Id nhãn hiệu: </label>
+                    <input type='number' min='1' id='id_maker' name='id_maker'>
                 </div>
                 <div class="form-group">
                     <label for="time">Thời gian: </label>
@@ -78,6 +95,14 @@
     </div>
 </body>
 <style>
+    #error_them
+    {
+        color: red;
+        background-color: yellow;
+        width: 100%;
+        margin-top: 10px;
+        padding-left: 10px;
+    }
     #themsp
     {
         margin: 50px auto;

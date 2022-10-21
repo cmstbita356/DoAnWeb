@@ -35,7 +35,7 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);
@@ -49,7 +49,7 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);
@@ -63,7 +63,7 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);
@@ -77,7 +77,7 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"],  $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"],  $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);

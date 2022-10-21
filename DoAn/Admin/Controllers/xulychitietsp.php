@@ -1,10 +1,12 @@
 <?php
     include_once "../Models/db_module.php";
     include_once "../Models/product_module.php";
+    include_once "../Models/maker_module.php";
 
     if(isset($_GET['id']))
     {
         $pm = new product_module();
+        $mm = new maker_module();
         $product = $pm->getProduct($_GET['id']);
         $price = number_format($product->price);
         echo
@@ -24,7 +26,7 @@
                     <h1><strong>Chi tiết sản phẩm</strong></h1>
                     <p id='name_ctsp'>$product->name</p>
                     <p id='price_ctsp'>$price VNĐ</p>
-                    <p id='nsx_ctsp'>Nhà sản xuất: $product->brand</p>
+                    <p id='nsx_ctsp'>Nhà sản xuất: ".$mm->GetNameById($product->id_maker)."</p>
                     <p id='state_ctsp'>Trạng thái xe: $product->time</p>
                     <a href='suasanpham.php?id=".$product->getid()."'><button id='btn_ctsp'>Sửa</button></a> <br><br>
                     <a href='../Controllers/xulyxoasp.php?id=".$product->getid()."'><button id='btn_ctsp'>Xóa</button></a>

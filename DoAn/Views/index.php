@@ -156,7 +156,7 @@
                 </div>
                 <div class="adsearch-wrap">
                     <div class="adsearch mr-5 ml-5">
-                        <form action="" method="get">
+                        <!-- <form action="" method="get">
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     <select name="time" class="form-control form-control-lg select" style="font-size: 17px; height: 50px;  margin-top: 5px">
@@ -166,10 +166,9 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-12">
-                                    <select name="brand" class="form-control form-control-lg select" style="font-size: 17px; height: 50px; margin-top: 5px" >
+                                    <select name="maker" class="form-control form-control-lg select" style="font-size: 17px; height: 50px; margin-top: 5px" >
                                         <option value="0">Không</option>
-                                        <option value="Honda">Honda</option>
-                                        <option value="3">Mercedez</option>
+                                        <?php //include_once "../Controllers/setSelectMaker.php"; ?>
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-12">
@@ -181,6 +180,33 @@
                                 </div>
                                 <div class="col-md-12 col-12" id="col-select" style="align-items: center;">
                                     <input type="submit" name="action" id="select-button-banner" value="Tìm kiếm nâng cao" style="background-color: #D5A116; color: white">
+                                </div>
+                            </div>
+                        </form> -->
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <select id='time' name="time" class="form-control form-control-lg select" style="font-size: 17px; height: 50px;  margin-top: 5px">
+                                        <option value="0">Không</option>
+                                        <option value="Cũ">Xe cũ</option>
+                                        <option value="Mới">Xe mới</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <select id='maker' name="maker" class="form-control form-control-lg select" style="font-size: 17px; height: 50px; margin-top: 5px" >
+                                        <option value="0">Không</option>
+                                        <?php include_once "../Controllers/setSelectMaker.php"; ?>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <select id='price' name="price" class="form-control form-control-lg select" style="font-size: 17px; height: 50px; margin-top: 5px">
+                                        <option value="0">Không</option>
+                                        <option value="500000000">500.000.000</option>
+                                        <option value="1000000000">1.000.000.000</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 col-12" id="col-select" style="align-items: center;">
+                                    <input type="button" id="select-button-banner" value="Tìm kiếm nâng cao" style="background-color: #D5A116; color: white" onclick="TKNC(1)">
                                 </div>
                             </div>
                         </form>
@@ -195,17 +221,20 @@
                     </ol>
                 </nav>
                 <p style="text-align: center; font-size: 50px; margin-top: 10px"><strong>Sản phẩm</strong></p>
+                <div id='dssp'>
+                    <?php include_once "../Controllers/xulyphantrang.php"; ?>
+                </div>
                 <?php
-                    if(isset($_GET['action']))
-                    {
-                        if($_GET['action'] == 'Tìm kiếm nâng cao')
-                        {
-                            include_once "../Controllers/xulytimkiemnc.php";
-                        }
-                    }
-                    else{
-                        include_once "../Controllers/xulyphantrang.php";
-                    }
+                    // if(isset($_GET['action']))
+                    // {
+                    //     if($_GET['action'] == 'Tìm kiếm nâng cao')
+                    //     {
+                    //         include_once "../Controllers/xulytimkiemnc.php";
+                    //     }
+                    // }
+                    // else{
+                    //     include_once "../Controllers/xulyphantrang.php";
+                    // }
                 ?>
             </div>
             
@@ -316,6 +345,20 @@
         </div>
 </body>
     <script>
-                document.getElementById("noidung_binhluan").innerHTML = asd
-            </script>
+        function TKNC(pageNumber) 
+        {
+            var time = document.getElementById("time").value;
+            var maker = document.getElementById("maker").value;
+            var price = document.getElementById("price").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                document.getElementById("dssp").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "../Controllers/xulytimkiemnc.php?page="+pageNumber+"&time="+time+"&maker="+maker+"&price="+price, true);
+            xhttp.send();
+        }
+    </script>
 </html>

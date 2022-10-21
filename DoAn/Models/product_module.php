@@ -19,14 +19,14 @@
             $row = mysqli_fetch_row($result_count);
             return $row[0];
         }
-        public function Count_TKNC($time, $brand, $price)
+        public function Count_TKNC($time, $id_maker, $price)
         {
             $link = null;
             ConnectDatabase($link);
             $valuetime = ($time == '0')? "" : $time; 
-            $valuebrand = ($brand == '0')? "" : $brand; 
+            $valuemaker = ($id_maker == '0')? "%%" : $id_maker; 
             $valueprice = ($price == 0)? 10000000000 : $price; 
-            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice and state = 1 ");
+            $result_count = ExecuteQuery($link, "select count(*) from tbl_product where time like '%".$valuetime."%' and id_maker like '$valuemaker' and price <= $valueprice and state = 1 ");
             $row = mysqli_fetch_row($result_count);
             return $row[0];
         }
@@ -38,7 +38,7 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);
@@ -52,7 +52,7 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"], $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);
@@ -66,25 +66,25 @@
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"],  $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"],  $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);
             return $data;
         }
-        public function getProductListLimited_TKNC($time, $brand, $price, $from, $size)
+        public function getProductListLimited_TKNC($time, $id_maker, $price, $from, $size)
         {
             
             $link = null;
             ConnectDatabase($link);
             $valuetime = ($time == '0')? "" : $time; 
-            $valuebrand = ($brand == '0')? "" : $brand; 
+            $valuemaker = ($id_maker == 0)? "%%" : $id_maker; 
             $valueprice = ($price == 0)? 10000000000 : $price; 
-            $result = ExecuteQuery($link, "select * from tbl_product where time like '%".$valuetime."%' and brand like '%".$valuebrand."%' and price <= $valueprice and state = 1 limit $from, $size");
+            $result = ExecuteQuery($link, "select * from tbl_product where time like '%".$valuetime."%' and id_maker like '$valuemaker' and price <= $valueprice and state = 1 limit $from, $size");
             $data = array();
             while($rows = mysqli_fetch_assoc($result))
             {
-                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"],  $rows["img"], $rows["brand"], $rows["time"]);
+                $product = new Product($rows["id"], $rows["name"], $rows["price"], $rows["desc"],  $rows["img"], $rows["id_maker"], $rows["time"]);
                 array_push($data, $product);
             }
             ClearMemory($link, $result);

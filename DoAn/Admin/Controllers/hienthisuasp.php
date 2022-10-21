@@ -1,9 +1,11 @@
 <?php
     include_once "../Models/product_module.php";
     include_once "../Models/product.php";
+    include_once "../Models/maker_module.php";
     if(isset($_GET["id"]))
     {
         $pm = new Product_Module();
+        $mm = new maker_module();
         $pro = $pm->getProduct($_GET['id']);
         if($pro->time == 'Cũ')
         {
@@ -43,8 +45,8 @@
                     <input type='text' id='img' name='img' maxlength='1000' value='$pro->img'>
                 </div>
                 <div class='form-group'>
-                    <label for='brand'>Nhãn hiệu: </label>
-                    <input type='text' id='brand' name='brand' value='$pro->brand'>
+                    <label for='id_maker'>Id nhãn hiệu: </label>
+                    <input type='number' min='1' max = '".$mm->getMaxID()."' id='id_maker' name='id_maker' value='$pro->id_maker'>
                 </div>
                 <div class='form-group'>
                     <label for='time'>Thời gian: </label>
